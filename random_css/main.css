@@ -1,0 +1,41 @@
+div.div_one {
+  height: 200px;
+  width: 200px;
+  background-color: greenyellow;
+}
+
+
+div.div_two {
+  height: 200px;
+  width: 200px;
+  background-color: darkblue;
+  position: relative;
+  padding-top: 26px;
+  /* left: 236px; */
+  float: left;
+}
+
+div.div_one:hover, div.div_two:hover {
+  background-color: red; 
+} 
+
+div.box div.inner_box:nth-child(2n+1):hover {
+  background-color: yellow;
+  width: 500px;
+}
+
+nav#navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100px;
+  background-color: fuchsia;
+}
+
+
+@media screen and (max-width: 800px) {
+  nav#navbar {
+    background-color: green;
+  }
+
+}

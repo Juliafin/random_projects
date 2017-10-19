@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="main.css">
+   <!-- jQuery -->
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/4.5.2/firebase.js"></script>
+
+</head>
+<body>
+
+  <div class="display"></div>
+
+  <form action="#">
+    <label for="name">Name
+    </label>
+    <input id="name" type="text">
+    <label for="number">Number
+    </label>
+    <input id="number" type="text">
+    <label for="text_color">Text Color
+    </label>
+    <input id="text_color" type="text">
+    <label for="background_color">Text Color
+    </label>
+    <input id="background_color" type="text">
+
+
+  </form>
+
+  <script>
+  
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyDBBxqm2JxbfTqx8cWZUggr1v6lWqVKL3Y",
+    authDomain: "change-form.firebaseapp.com",
+    databaseURL: "https://change-form.firebaseio.com",
+    projectId: "change-form",
+    storageBucket: "",
+    messagingSenderId: "164154430970"
+  };
+
+
+  firebase.initializeApp(config);
+
+  console.log(firebase);
+  var db = firebase.database();
+
+  var textColor = "Black";
+  var backgroundColor = "White";
+
+  db.ref().on('value', (snapshot) => {
+    console.log(snapshot.val);
+    var string = `My name is ${snapshot.val().name || "N/A"} and my favorite number is ${snapshot.val().number  || "N/A"}`;
+    $('.display').text(string);
+    $('.display').css('color', snapshot.val().textColor || textColor);
+    $('body').css('background-color', snapshot.val().backgroundColor || backgroundColor);
+
+
+  },
+  (err) => {console.log(err);}
+);
+
+
+$('input').on('keyup change',(event) => {
+  console.log(event.target.value, 'etv');
+  console.log('name', $('#name').val());
+  console.log('number', $('#number').val());
+  db.ref().set({
+    name: $('#name').val(),
+    number: $('#number').val(),
+    textColor: $('#text_color').val() || textColor,
+    backgroundColor: $('#background_color').val() || backgroundColor
+  });
+
+});
+  </script>
+</body>
+</html>
