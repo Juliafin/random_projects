@@ -8,9 +8,18 @@
   <title>Google Maps api</title>
 </head>
 <body>
+<label for="search">Search</label>
+<input id="search" type="text">
+
   <div id="map"></div>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+  </script>
+  
   <script src="app.js"></script>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCnn35g6HnGSrjDqsfZQ_uLIWYK1pHTtvk&callback=initMap"
-    type="text/javascript"></script>
+  
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCnn35g6HnGSrjDqsfZQ_uLIWYK1pHTtvk&libraries=places&callback=initMap"
+  type="text/javascript"></script>
 </body>
 </html>
+

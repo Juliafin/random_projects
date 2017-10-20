@@ -1,0 +1,12 @@
+form {
+  margin: 0 auto;
+  width: 70%;
+  border: 10px #273636 solid;
+  height: 500px;
+  text-align: center;
+}
+
+label, input, button {
+    position: relative;
+    top: 50%;
+}
