@@ -54,15 +54,6 @@ function createMarkers (position, title, infoWindow) {
   
 }
 
-// function createInfoWindow(name, address) {
-  
-//   infoWindow = new google.maps.InfoWindow({
-//     content: `
-//     <h1>${name}</h1>
-//     <p>${address}</p>
-//     `
-//   })
-// }
 
 function searchListener() {
 
@@ -91,13 +82,13 @@ function mapSearch (value) {
     places.forEach(function(place, i) {
       if (place.geometry) {
           
-      var position = {
+      let position = {
         lat: place.geometry.location.lat(),
         lng: place.geometry.location.lng()
       }
-      var name = place.name || place.formatted_address;
+      let name = place.name || place.formatted_address;
       
-      var infoWindow = new google.maps.InfoWindow({
+      let infoWindow = new google.maps.InfoWindow({
         content: `
         <h1 class="info_window_header">${place.name}</h1>
         <p>${place.formatted_address}</p>

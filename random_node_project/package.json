@@ -1,0 +1,19 @@
+{
+  "name": "random_node_project",
+  "version": "2.0.0",
+  "description": "Just testing",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Hello, please add packages to test this project!\" && exit 0",
+    "start": "node app.js"
+  },
+  "keywords": [
+    "testing",
+    "blah"
+  ],
+  "author": "Julia",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.16.2"
+  }
+}

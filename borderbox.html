@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <style>
+  div{
+    width: 50px;
+    height: 100px;
+    padding: 25px;
+  }
+  #elem1{
+    background-color: red;
+  }
+  #elem2{
+    background-color: blue;
+    box-sizing: border-box;
+  }
+  </style>
+  <div>
+
+    <div id="elem1">
+      <button>Hello</button>
+    </div>
+    <div id="elem2"></div>
+
+  </div>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+  </script>
+  <script>
+  $('#elem1').on('click', () => {
+    console.log('div clicked');
+  });
+  $('button').click( () => {
+    console.log('button clicked');
+  });
+  </script>
+  
+</body>
+</html>
