@@ -1,0 +1,27 @@
+<h2>This is the notes template!</h2>
+<form>
+
+  <br>
+  <label for="note">Enter your note here: </label>
+  <input id="note" type="text">
+  <br>
+  <label for="author">Author</label>
+  <input id="author" type="text">
+  <button id="noteSubmit" type="button">Submit Note</button>
+
+</form>
+
+
+<p>Here are our notes: </p>
+<ul>
+
+{{#each notes}}
+  <li>
+    <div>{{note}}</div>
+    <div>Author: {{author}}</div>
+
+  </li>
+
+{{/each }}
+
+</ul>

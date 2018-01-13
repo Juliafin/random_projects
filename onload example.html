@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body onload="printHello(event)" >
+
+  <h1 onclick = "randomColor()" >
+    Yen
+  </h1>
+
+
+  
+
+  <script>
+    function printHello (event) {
+      console.log('hello', event);
+
+
+      var h1 = document.getElementsByTagName('h1')[0]
+      console.log(h1);
+
+      function randomColor (event) {
+        console.log('event', event);
+
+        var colors = ['red', 'orange', 'green', 'purple', 'yellow', 'blue', 'violet', 'indigo'];
+        var randomcolor = colors[Math.floor(Math.random() * colors.length )];
+
+        var body = document.getElementsByTagName('body')[0];
+
+        body.setAttribute('style', `background-color: ${randomcolor}; `);
+
+
+
+
+      }
+
+    }
+
+  </script>
+</body>
+</html>

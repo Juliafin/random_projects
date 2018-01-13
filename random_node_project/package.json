@@ -1,19 +1,24 @@
 {
-  "name": "random_node_project",
-  "version": "2.0.0",
-  "description": "Just testing",
-  "main": "app.js",
+  "name": "a_project_for_denise",
+  "version": "1.0.0",
+  "description": "This is a test",
+  "main": "index.js",
   "scripts": {
-    "test": "echo \"Hello, please add packages to test this project!\" && exit 0",
-    "start": "node app.js"
+    "test": "echo \"Error: There was no error\" && exit 0",
+    "makeAFolder": "mkdir new_folder_made_here && echo A new folder was made here",
+    "importjs": "importjs --help"
   },
   "keywords": [
-    "testing",
-    "blah"
+    "no",
+    "keywords",
+    "needed"
   ],
   "author": "Julia",
-  "license": "MIT",
+  "license": "ISC",
   "dependencies": {
-    "express": "^4.16.2"
+    "http-server": "^0.10.0",
+    "import-js": "^2.8.0",
+    "jquery": "^3.2.1",
+    "lodash": "^4.17.4"
   }
 }

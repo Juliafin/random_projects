@@ -19,7 +19,7 @@ connection.connect( (err) => {
     throw err;
   }
   console.log(`Connected as id ${connection.threadId}`);
-  afterConnection();
+  // afterConnection();
   createPlayListTable();
   console.log('ending connection');
   
@@ -37,7 +37,7 @@ function afterConnection() {
 
 function createPlayListTable() {
   
-  fs.readFile('./icescream.sql', 'utf8', (err, data) => {
+  fs.readFile('./books.sql', 'utf8', (err, data) => {
     
     if (err) console.log(err)
     console.log(typeof data);

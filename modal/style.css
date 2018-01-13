@@ -1,0 +1,45 @@
+h1 {
+  color: green;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.modal_container {
+  display: none;
+  background-color: rgba(36, 35, 35, 0.74);
+  position: absolute;
+  width: 100%;
+  height: 500px;
+  z-index: 10;
+  margin: 0 auto;
+  top: 0;
+  align-items: center;
+}
+
+.modal_box {
+  background-color: white;
+  height: 325px;
+  width: 70%;
+  margin: 0 auto;
+  text-align: center;
+  overflow-y: scroll;
+  border-radius: 5px;
+}
+
+p {
+  color: blue;
+  font-size: 20px;
+  font-family: cursive;
+}
+
+button.close_modal {
+  display: block;
+  margin: 0 auto 50px auto;
+  outline: none;
+  color: purple;
+  background: aliceblue;
+  border-radius: 5px;
+}

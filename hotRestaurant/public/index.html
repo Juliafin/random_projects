@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  
+  <h1>You have reached the restaurants page</h1>
+
+  <p>Make a reservation</p>
+  <form>
+    <label for="people">Number of People</label>
+    <input id="people" type="number">
+
+    <button class="makeReservation" >Submit</button>
+
+  </form>
+
+  <script
+  src="http://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+
+  <script>
+   console.log('HELLO we have JQUERY')
+   console.log($, 'JQERY!')
+  
+    function sendReservation(number) {
+
+      var sendingOptions = {
+        method: "POST",
+        url: "/reservation",
+        data: {
+          numberOfPeople: number
+        }
+      }
+
+
+      return $.ajax(sendingOptions)
+      .then( (response) => {
+        console.log('the request was successful', response)
+      })
+      .catch( (error) => {
+        console.log('there was an error', err)
+      })
+    }
+
+
+
+   $('button.makeReservation').click(function(event) {
+    event.preventDefault();
+     var numberOfPeople = $('#people').val();
+     console.log('number of people', numberOfPeople);
+     
+     sendReservation(numberOfPeople);
+
+   })
+   
+   
+  
+  
+  
+  </script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+nav {
+  display: flex;
+  position: fixed;
+  height: 70px;
+  background-color: black;
+  width: 100%;
+  top: 0;
+}
+
+nav.navbar li {
+  color: white;
+  align-items: flex-end;
+}
+
+nav.navbar li:hover {
+  color: blue;
+}
+
+
+h1 {
+  color: green
+}
