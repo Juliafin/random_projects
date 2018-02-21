@@ -1,24 +1,16 @@
 {
-  "name": "a_project_for_denise",
+  "name": "random_node_project",
   "version": "1.0.0",
-  "description": "This is a test",
+  "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: There was no error\" && exit 0",
-    "makeAFolder": "mkdir new_folder_made_here && echo A new folder was made here",
-    "importjs": "importjs --help"
+    "test": "echo \"Error: no test specified\" && exit 0",
+    "build": "rm -rf build && mkdir build && touch ./build/hello.js",
+    "start": "node test.js"
   },
-  "keywords": [
-    "no",
-    "keywords",
-    "needed"
-  ],
-  "author": "Julia",
+  "author": "",
   "license": "ISC",
   "dependencies": {
-    "http-server": "^0.10.0",
-    "import-js": "^2.8.0",
-    "jquery": "^3.2.1",
-    "lodash": "^4.17.4"
+    "lodash": "^4.17.5"
   }
 }
