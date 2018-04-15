@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+
+  <h1>Welcome to our sequelize calculator</h1>
+
+  <form>
+    <label for="num1">Number 1</label>
+    <input id="num1" type="number">
+    
+    <select name="operator" id="operator">
+      <option value="+">+</option>
+      <option value="-">-</option>
+      <option value="*">x</option>
+      <option value="/">&#247;</option>
+
+    </select>
+
+    <label for="num2">Number 2</label>
+    <input id="num2" type="number">
+
+    <button type="button" id="calculate">Calculate</button>
+    <button id="clearHistory">Clear History</button>
+
+  </form>
+
+  <div id="calculations">Calculation History</div>
+  
+
+  <script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+
+  <script>
+    getCalculations()
+
+    function sendCalculation (num1, num2, operator) {
+      var options = {
+        method: "POST",
+        url: "/calculate",
+        data: {num1, num2, operator}
+      }
+      return $.ajax(options);
+    }
+
+    function getCalculations() {
+       return $.get('/calculations')
+        .then(function(data) {
+          console.log(data);
+          renderCalcHistory(data.calculations);
+        })
+        .catch(function(error) {
+          console.log(error);
+        })
+    }
+
+    function renderCalcHistory(calcArray) {
+      console.log(calcArray, 'calc array');
+      $('#calculations').empty(); 
+      calcArray.forEach(function(element){
+
+        var operator = '';
+
+        switch(element.operator) {
+          case '*':
+            operator = 'x';
+            break;
+          case '/':
+            operator = '&#247;';
+            break;
+          default:
+            operator = element.operator
+        }
+
+        var calcHtml = `
+        <p class="calculation">
+          <span> ${element.num1} </span>
+          <span> ${operator} </span>
+          <span> ${element.num2} </span>
+          <span> = </span>
+          <span> ${element.result} </span>
+        </p>
+        `;
+        $('#calculations').append(calcHtml);        
+      });
+
+    }
+
+
+    function clearCalculator() {
+      return $.ajax({
+        method: 'DELETE',
+        url: '/clearcalculator'
+      })
+      .then (function(result) {
+        console.log(result);
+      })
+      .catch(function(error) {
+        console.log(error);
+      })
+    }
+
+  
+    $('#calculate').click(function(event) {
+      event.preventDefault();
+
+      var num1 = parseInt($('#num1').val());
+      var num2 = parseInt($('#num2').val());
+      var operator = $('#operator').val();
+
+      console.log(num1, num2, operator);
+      
+      sendCalculation(num1, num2, operator)
+      .then(function (result) {
+        console.log(result, 'result');
+        getCalculations();
+
+        })
+        .catch(function(error) {
+          console.log(error);
+        });
+    });
+
+
+    $('#clearHistory').click(function(event) {
+      event.preventDefault();
+      clearCalculator();
+      $('#calculations').empty();
+      
+
+    })
+
+
+  </script>
+
+
+
+</body>
+</html>

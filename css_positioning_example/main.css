@@ -1,0 +1,17 @@
+#blue {
+  background-color: blue;
+  height: 100px;
+}
+
+.red {
+  background-color: rgb(49, 94, 68);
+  height: 100px;
+}
+
+
+nav {
+  height: 150px;
+  background-color: blueviolet;
+  position: fixed;
+}
+

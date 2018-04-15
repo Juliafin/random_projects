@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  
+
+<label for="name"></label>
+<input type="text" id="name">
+
+<button id="submitName" type="text">Submit name</button>
+
+<button id="getName">Get the name</button>
+
+
+<div id="names"></div>
+
+
+<div style="border:1px solid red;" id="nameDisplay">Selected Name</div>
+
+
+
+
+
+
+
+
+<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+
+
+<script>
+  
+var x = 10;
+
+function hello() {
+  x = 1000
+}
+
+
+hello();
+console.log(x)
+
+
+// event delegation
+$('#names').on('click', '.name', function(event) {
+  var text = $(this).text();
+  $('#nameDisplay').text(text);
+
+
+});
+
+
+console.log(renderNames)
+  var state = {
+
+    names: []
+  };
+
+  $('#submitName').click(function(event) {
+    event.preventDefault();
+   state.names.push($('#name').val())
+   console.log(state.names);
+   renderNames();
+  })
+
+  
+  var renderNames = function () {
+    $('#names').empty();
+    state.names.forEach(function(name) {
+      var nameHtml = `
+        <p class="name">${name}</p>
+      `;
+      $('#names').append(nameHtml);
+    })
+  }
+
+
+$('#getName').click(function(event) {
+  event.preventDefault();
+
+  console.log(state);
+})
+
+
+console.log(state.names);
+
+
+
+</script>
+</body>
+</html>

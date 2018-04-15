@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+
+<label for="notes">Enter Note</label>
+<input type="text" id="notes">
+<button type="button">Submit Note</button>
+
+<div id="notes_container" style="overflow:scroll">
+
+
+</div>
+
+  <script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+
+<script src="hello.js"></script>
+<script src="socketio.js"></script>
+
+
+<script>
+
+  var socket = io.connect('http://localhost:1180');
+  
+
+  socket.on('news', (data) => {
+    console.log('ive gotten the data !', data);
+  })
+
+
+
+
+  socket.on('notes send', (data) => {
+    console.log(data);
+    $('#notes_container').empty();
+    data.notes.forEach((element) => {
+      var html = `<p>${element.note}</p>`;
+      
+      $('#notes_container').append(html);
+    })
+
+  
+  })
+
+
+  
+  socket.on('connection', (data) => {
+    console.log(data);
+    $('#notes_container').empty();
+    data.notes.forEach((element) => {
+      var html = `<p>${element.note}</p>`;
+      
+      $('#notes_container').append(html);
+    })
+
+  
+  })
+
+
+
+
+  $('button').click((event) => {
+    var input = $('input#notes').val();
+    console.log(input);
+    socket.emit('notes write', {note: input});
+
+
+  });
+</script>
+
+
+</body>
+
+</html>

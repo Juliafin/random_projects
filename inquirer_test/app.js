@@ -51,9 +51,9 @@ ourConnection.connect(function (error) {
 // }
 
 
+//     console.log('You said: ' + JSON.stringify(answers, null, 2))
 // prompt()
 // .then((answers) => {
-//     console.log('You said: ' + JSON.stringify(answers, null, 2))
 //   })
 //   .catch((error) => {
 //     console.log('there was an error', error)

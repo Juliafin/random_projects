@@ -1,0 +1,22 @@
+{
+  "name": "random_node_project_2",
+  "version": "2.0.0",
+  "description": "Just a test project.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "testing",
+    "fooling",
+    "around",
+    "node",
+    "javascript"
+  ],
+  "author": "Julia",
+  "license": "ISC",
+  "dependencies": {
+    "long": "^4.0.0",
+    "simple-statistics": "^5.2.1"
+  }
+}

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <h1>Welcome to our calculator!</h1>
+
+
+  <form action="">
+    <label for="number1">Number 1</label>
+    <input type="text" id="number1">
+  
+
+    <select name="operator" id="operator">
+      <option value="" default>Please choose an operator: </option>
+      <option value="+">+</option>
+      <option value="-">-</option>
+      <option value="*">x</option>
+      <option value="/">&#247;</option>
+    </select>
+
+    
+    <label for="number2">Number 2</label>
+    <input type="text" id="number2">
+
+    <button id="submitCalc" type="button">Submit calculation</button>
+  
+
+
+  </form>
+
+  <div id="calculations"></div>
+
+
+
+
+  <script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+
+  <script>
+  
+    function sendcalculation(num1, num2, operator) {
+      const options = {
+        method: "POST",
+        url: "/calculation",
+        data: {number1: num1, number2: num2, operator}
+      }
+      return $.ajax(options)
+        .then((result) => {
+          
+          console.log(result)
+        
+          getCalculations();
+        
+        
+        })
+        .catch((err) => {console.log('sending the calculation failed')});
+      
+
+
+
+    }
+
+
+    function renderCalculations(arrayofCalculations) {
+
+      $('#calculations').empty();
+
+      arrayofCalculations.forEach(element => {
+        
+        var html = `
+          <p>${element.number1}</p>
+          <p>${element.operator}</p>
+          <p>${element.number2}</p>
+          <p>${element.result}</p>
+        
+        `
+
+        $('#calculations').append(html);
+
+
+
+
+
+
+      });
+
+
+
+    }
+
+
+
+    function getCalculations() {
+     const options = {
+       method: "GET",
+       url: "/calculations"
+     } 
+
+     return $.ajax(options)
+      .then((calculations) => {
+        console.log(calculations)
+        renderCalculations(calculations.calculations);
+      })
+      .catch((err) => console.log(err));
+    }
+
+
+
+
+    $('#submitCalc').click((event) => {
+
+      console.log('submit button clicked')
+
+      const num1 = $('#number1').val();
+      const num2 = $('#number2').val();
+      const operator = $('#operator').val();
+
+      sendcalculation(num1, num2, operator)
+
+    });
+
+  
+  </script>
+
+</body>
+</html>
