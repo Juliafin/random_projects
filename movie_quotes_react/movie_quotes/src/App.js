@@ -1,16 +1,14 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import {connect} from 'react-redux';
+import {toggleFood} from './actions';
+
 
 class App extends Component {
 
   constructor(props) {
     super(props);
-    this.state = {
-      foods: ['pasta', 'sushi', 'chicken', 'ham sandwich', 'pizza'],
-      toggleFood: false    
-    }
-
     this.displayFood = this.displayFood.bind(this);
   }
 
@@ -22,30 +20,28 @@ class App extends Component {
   displayFood(event) {
     // DONT manipulate the state directly because it will not re-render
     // this.state.toggleFood = !this.state.togglefood
-    this.setState({
-      toggleFood: !this.state.toggleFood
-    })
+    this.props.dispatch(toggleFood())
     console.log(this);
   }
 
   render() {
 
-    let foodsList = this.state.foods.map((food, index) => {
+    let foodsList = this.props.foods.map((food, index) => {
       return (<li key={index}>{food}</li>);
     });
 
-    if (this.state.toggleFood) {
+    if (this.props.toggleFood) {
       var foods = (
         <div>
-        <h1>Favorite Food</h1>
-        {foodsList}
-        <button onClick={this.displayFood}>Close Foods list</button>
+          <h1>Favorite Food</h1>
+          {foodsList}
+          <button onClick={this.displayFood}>Close Foods list</button>
         </div>
-      )
+      );
     } else {
       var foods = (
         <button onClick={this.displayFood}>Display Food</button>
-      )
+      );
     }
 
 
@@ -65,4 +61,10 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapStateToProps = (state) => ({
+  toggleFood: state.toggleFood,
+  foods: state.foods
+})
+
+
+export default connect(mapStateToProps)(App);

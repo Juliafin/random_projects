@@ -1,0 +1,19 @@
+{
+  "name": "vuejs_example",
+  "version": "1.0.0",
+  "description": "Following tutorial with vuejs",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon server.js",
+    "test": "mocha"
+  },
+  "author": "Julia",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "chai": "^4.1.2",
+    "express": "^4.16.3",
+    "mocha": "^5.2.0",
+    "nodemon": "^1.17.5"
+  }
+}

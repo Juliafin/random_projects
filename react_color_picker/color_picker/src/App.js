@@ -3,14 +3,14 @@ import './App.css';
 import Header from './Components/Header';
 import ColorInput from './Components/ColorInput';
 import ColorDisplay from './Components/ColorDisplay';
+import {connect} from 'react-redux';
+import {submitColor, changeColor, clearHistory} from './actions';
+
 
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      color: "",
-      colorHistory: []
-    }
+    
 
     this.setColor = this.setColor.bind(this);
     this.submitColor = this.submitColor.bind(this);
@@ -30,25 +30,19 @@ class App extends Component {
   setColor(event) {
     event.preventDefault()
     const color = event.target.value;
-    this.setState({
-      color:color
-    })
+    this.props.dispatch(changeColor(color))
   }
 
   clearHistory(event) {
     event.preventDefault();
-    this.setState({
-      colorHistory: []
-    })
+    this.props.dispatch(clearHistory())
   }
 
   submitColor(event) {
     event.preventDefault()    
     const color = event.target.color.value
     console.log(color, 'this is the color submitted')
-    this.setState({
-      colorHistory: [...this.state.colorHistory, color]
-    })
+    this.props.dispatch(submitColor(color));
 
   }
 
@@ -56,7 +50,7 @@ class App extends Component {
   render() {
    
 
-    const colorHistoryDisplay = this.state.colorHistory.map((color, index,colorArray) => {
+    const colorHistoryDisplay = this.props.colorHistory.map((color, index,colorArray) => {
       return (
       <ColorDisplay key={index} tiger="hello" display="inline-block" height="100px" width="200px" color={color}> 
         <p>Color number {index + 1 }</p>
@@ -72,7 +66,7 @@ class App extends Component {
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
         <ColorInput clearHistory={this.clearHistory} num={5} submitColor={this.submitColor} setColor={this.setColor}/>
-        <ColorDisplay color={this.state.color} />
+        <ColorDisplay color={this.props.color}/>
         <div>
         <h1>Here are the colors you picked: </h1>
         {colorHistoryDisplay}
@@ -84,6 +78,12 @@ class App extends Component {
 }
 
 
+const mapStateToProps = (state) => {
+  return {
+    color: state.color,
+    colorHistory: state.colorHistory
+  }
+};
 
 
 
@@ -91,5 +91,4 @@ class App extends Component {
 
 
 
-
-export default App;
+export default connect(mapStateToProps)(App);

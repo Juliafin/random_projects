@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <h1>Recipe Api</h1>
+  <form action="" id="submit_recipe"  >
+
+    <label for="recipe">Search for recipe</label>
+    <input type="text" name="recipe" id="recipe">
+    <button type="submit">Search</button>
+
+  </form>
+
+
+  <script src='https://code.jquery.com/jquery-3.3.1.min.js' integrity='sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=' crossorigin='anonymous'></script>
+  <div>Hello</div>
+  
+  <script>
+  console.log('hello')
+
+  var recipeDetails = '';
+  
+
+  function recipeSubmitListener() {
+    $('#submit_recipe').on('submit', function(event) {
+      event.preventDefault();
+      var recipe = $('#recipe').val()
+      console.log(recipe)
+      
+      findRecipe(recipe)
+
+    });
+
+  }
+
+  function renderRecipe(recipe) {
+
+    var cuisine = ''
+    var instructions = ''
+    var recipeName = ''
+    var url = ''
+    var ingredients = []
+    var measures = []
+    var category = ''
+
+    var recipeObject = recipe.meals[0]
+    
+    var ingredientTest = new RegExp(/^strIngredient/);
+    var measureTest = new RegExp(/^strMeasure/);
+    
+    for (var recipeKey in recipeObject) {
+      if (recipeKey === 'strCategory') {
+        category = recipeObject[recipeKey]
+      } else if (recipeKey === 'strArea') {
+        cuisine = recipeObject[recipeKey]
+      } else if (recipeKey === 'strInstructions') {
+        instructions = recipeObject[recipeKey]
+      } else if (recipeKey === 'strMeal') {
+        recipeName = recipeObject[recipeKey]
+      } else if (recipeKey === 'strSource') {
+        url = recipeObject[recipeKey]
+      } else if (recipeObject[recipeKey] && ingredientTest.test(recipeKey)) {
+        ingredients.push(recipeObject[recipeKey])
+      } else if (recipeObject[recipeKey] && measureTest.test(recipeKey)) {
+        measures.push(recipeObject[recipeKey])
+      }
+    }
+
+    console.log(ingredients, measures, cuisine, category, instructions, url)
+
+
+  }
+
+
+  function findRecipe(recipe) {
+    
+    var options = {
+      url: 'https://www.themealdb.com/api/json/v1/1/search.php?s=' + recipe,
+      method: 'GET'
+    }
+      $.ajax(options)
+        .then(function(returnFromtTheApi) {
+          console.log(returnFromtTheApi, 'the return value')
+          recipeDetails = returnFromtTheApi
+          renderRecipe(recipeDetails)
+        });
+
+  }
+    // findRecipe('sandwich')
+    recipeSubmitListener()
+  
+
+  
+  </script>
+
+
+</body>
+</html>
