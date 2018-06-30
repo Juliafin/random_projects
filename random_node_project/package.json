@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 0",
     "build": "rm -rf build && mkdir build && touch ./build/hello.js",
-    "start": "node test.js"
+    "start": "node test.js",
+    "tiger": "echo 'tiger goes ROOOOAR'"
   },
   "author": "",
   "license": "ISC",
