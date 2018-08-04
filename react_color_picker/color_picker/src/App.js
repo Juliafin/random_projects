@@ -5,26 +5,69 @@ import ColorInput from './Components/ColorInput';
 import ColorDisplay from './Components/ColorDisplay';
 import {connect} from 'react-redux';
 import {submitColor, changeColor, clearHistory} from './actions';
-
+import axios from 'axios';
+import fetch from 'node-fetch'
 
 class App extends Component {
   constructor(props) {
     super(props);
-    
+    this.state = {
+      imageUrl: "",
+      showImage: false
+    }
 
     this.setColor = this.setColor.bind(this);
     this.submitColor = this.submitColor.bind(this);
     this.clearHistory = this.clearHistory.bind(this);
-
+    this.mouseOver = this.mouseOver.bind(this)
   }
 
   
   componentDidMount() {
     console.log('the component has mounted');
+    this.getCat()
   }
 
   componentDidCatch() {
     console.log('the componenet errored...')
+  }
+
+
+  mouseOver() {
+    this.setState({
+      showImage: !this.state.showImage
+    });
+    this.getCat()
+  }
+  
+
+  getCat() {
+    console.log('inside getCat')
+    // axios.get({
+    //   method: "get",
+    //   url: "thecatapi.com/api/images/get?api_key=MzM3NjIx",
+    //   data: {
+    //     api_key: "MzM3NjIx",
+
+    //   }
+    // })
+
+    fetch('http://localhost:8080/image')
+
+      .then((images) => {
+        console.log(images, 'images');
+        return images.json()
+      })
+      .then((image) => {
+        console.log(image)
+        var imageUrl = image.response.data[0].images[0].image[0].url[0]
+        console.log(imageUrl)
+        this.setState({imageUrl})
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+    
   }
 
   setColor(event) {
@@ -58,11 +101,17 @@ class App extends Component {
       </ColorDisplay>
       )
     })
+    var image = null
+    if (this.state.showImage) {
+      image = <img src={this.state.imageUrl}></img> 
+    }
 
     return (
       <div className="App">
         <Header/>
-        <p className="App-intro">
+        {image}
+
+        <p className="App-intro" onMouseEnter={this.mouseOver} >
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
         <ColorInput clearHistory={this.clearHistory} num={5} submitColor={this.submitColor} setColor={this.setColor}/>

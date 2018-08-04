@@ -33,7 +33,7 @@ server.listen('12000', function() {
 });
 
 
-
+module.exports = server
 
 
 

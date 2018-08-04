@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+
+
+  <div class="number_error"></div>
+  <div id="number_container">
+    <div id="numbers"></div>
+    <div id="number_indices"></div>
+  </div>
+
+  <form>
+    <h1>Add a Number</h1>
+    <label for="add_number">Enter a number</label>
+    <input id="add_number" type="number"/>
+    <button id="submit_number">Submit Number</button>
+  </form>
+
+  <form>
+    <h1>Edit a Number</h1>
+    <label for="edit_number">Edit a number</label>
+    <input id="edit_number" type="number"/>
+    <label for="number_index">Number Index</label>
+    <input id="number_index" type="number"/>
+    <button id="submit_edit">Submit Edit</button>
+  </form>
+
+  <form>
+    <h1>Delete a Number</h1>
+    <label for="delete_number_index">Number Index</label>
+    <input id="delete_number_index" type="number"/>
+    <button id="submit_delete">Submit Delete</button>
+  </form>
+  
+
+
+  <script src='https://code.jquery.com/jquery-3.3.1.min.js' integrity='sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=' crossorigin='anonymous'></script>
+  <script>
+
+    const state = {
+      numbers: []
+    }
+
+
+    const deleteNumberListener =() => {
+      $('#submit_delete').click((event) => {
+        event.preventDefault();
+        const index = $('#delete_number_index').val();
+        console.log(index);
+        $.ajax({
+          method: "DELETE",
+          url: '/deleteNumber',
+          data: {
+            index: index - 1
+          }
+        })
+        .then((number) => {
+          console.log(number)
+          state.numbers.splice(number.index, 1);
+          renderNumbers(state.numbers);
+          })
+        .catch((err) => {
+          console.log('There was an error deleting the number: ', err)
+        })
+      })
+    }
+
+    const editNumberListener = () => {
+      $('#submit_edit').click((event)=> {
+        event.preventDefault();
+        const index = $('#number_index').val();
+        const number = $('#edit_number').val();
+        console.log(index, number)
+        $.ajax({
+          method: 'PUT',
+          url: '/editNumber',
+          data: {
+            newNumber: number, 
+            index: index - 1
+          }
+        })
+        .then((number) => {
+          console.log(number)
+          state.numbers[number.index] = number.newNumber;
+          renderNumbers(state.numbers);
+
+        })
+        .catch((err) => {
+          console.log('There was an error editing the number: ', err);
+        })
+      })
+    }
+
+
+    const addNumberListener = () => {
+      $('#submit_number').click((event) => {
+        event.preventDefault();
+        const number = $('#add_number').val();
+        $.ajax({
+          method: 'POST',
+          url: '/addNumber',
+          data: {
+            number
+          }
+        })
+        .then((number) => {
+          console.log(number)
+          state.numbers.push(number.number);
+          renderNumbers(state.numbers);
+        })
+        .catch((err) => {
+          console.log('There was an error adding the number: ', err);
+      })
+      })
+    }
+
+    const getNumbers = () => {
+      $.ajax({
+        method: 'GET',
+        url: '/getNumbers'
+      })
+      .then((numbers) => {
+        console.log(numbers)
+        state.numbers = numbers.numbers;
+        renderNumbers(state.numbers);
+      })
+      .catch((err) => {
+        console.log('There was an error getting the numbers: ', err);
+      })
+    }
+
+
+    const renderNumbers = (numbers) => {
+      $('.number_error').empty();
+      if (numbers.length === 0) {
+        $('.number_error').text('Please add a number'); 
+        return
+      }
+
+      let number_indices = [];
+      
+      for(let i=0; i < numbers.length; i++) {
+        number_indices.push(i+1);
+      }
+      $('#numbers').text(numbers.join(", "));
+      $('#number_indices').text(number_indices.join(", "))
+
+    }
+
+
+
+    $(document).ready(() => {
+
+      console.log('The document has loaded');
+      getNumbers();
+      addNumberListener();
+      editNumberListener();
+      deleteNumberListener();
+
+
+    });
+    
+  
+  
+  
+  
+  </script>
+</body>
+</html>

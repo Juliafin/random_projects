@@ -1,0 +1,8 @@
+/c/projects/random_projects/jquery_example
+total 54
+drwxr-xr-x 1 Admin 197121    0 Aug  4 19:44 [0m[01;34m.[0m/
+drwxr-xr-x 1 Admin 197121    0 Aug  4 11:05 [01;34m..[0m/
+-rw-r--r-- 1 Admin 197121 1154 Jun 30 17:48 [00mapp.js[0m
+-rw-r--r-- 1 Admin 197121   43 Aug  4 19:44 [00mcurrent_dir.txt[0m
+-rw-r--r-- 1 Admin 197121  707 Jun 30 17:39 [00mindex.html[0m
+-rw-r--r-- 1 Admin 197121  184 Oct 19  2017 [00mmain.css[0m

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+
+  <form id="submit_number" action="/number" method="POST">
+    <label for="number">Enter a Number</label>
+    <input name="number" id="number" type="number">
+    <button type="submit">Submit Number</button>
+  </form>
+
+  
+
+<form style="border: 1px solid green" action="/redirect">
+  <button type="submit">Example redirect</button>
+
+</form>
+
+
+  <script src='https://code.jquery.com/jquery-3.3.1.min.js' integrity='sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=' crossorigin='anonymous'></script>
+
+  <script>
+
+    function submitNumber(number) {
+      $.ajax({
+        method: 'POST',
+        url: '/number',
+        data: {
+          number: number
+        }
+      })
+      .then((res) => {
+        console.log(res)
+      })
+    }
+
+
+
+    $('#submit_number').click((event) => {
+      // event.preventDefault();
+
+      // console.log(event)
+      // let number = $('#number').val()
+      // submitNumber(number)
+    })
+  
+  </script>
+</body>
+</html>
