@@ -75,10 +75,13 @@
       arrayofCalculations.forEach(element => {
         
         var html = `
-          <p>${element.number1}</p>
-          <p>${element.operator}</p>
-          <p>${element.number2}</p>
-          <p>${element.result}</p>
+          <div>
+            <span>${element.number1}</span>
+            <span>${element.operator}</span>
+            <span>${element.number2}</span>
+            <span>=</span>
+            <span>${element.result}</span>
+          </div>
         
         `
 
@@ -125,6 +128,8 @@
       sendcalculation(num1, num2, operator)
 
     });
+
+    getCalculations()
 
   
   </script>

@@ -1,0 +1,45 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+#parent {
+  margin: 0 auto;
+  width: 800px;
+}
+
+.top, .bottom {
+  display:inline-block
+}
+
+.top {
+  width: 50%;
+  height: 200px;
+}
+
+.bottom {
+  width: calc(100%/3);
+  bottom: 300px;
+}
+
+
+.green {
+  background: green;
+}
+
+.blue {
+  background: blue;
+}
+
+.grey {
+  background: grey;
+}
+
+.black {
+  background: black
+}
+
+.yellow {
+  background: yellow;
+}

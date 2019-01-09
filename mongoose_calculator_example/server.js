@@ -11,18 +11,17 @@ const Calculator = require('./models/calcModel');
 
 function calculate(num1, num2, operator) {
   switch(operator) {
-    
     case "+":
-      return num1 + num2
+      return num1 + num2;
       
     case "-":
-      return num1 - num2
+      return num1 - num2;
       
     case "*":
-      return num1 * num2
+      return num1 * num2;
       
     case "/":
-      return num1 / num2
+      return num1 / num2;
       
 
 
@@ -35,8 +34,8 @@ function calculate(num1, num2, operator) {
   
 mongoose.Promise = global.Promise;
 
-app.use(express.static('public'))
-app.use(bodyParser.json())
+app.use(express.static('public'));
+app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:false}));
 // extended true handles nested data being sent in url
 
@@ -49,7 +48,7 @@ app.get('/', (req, res) => {
 
   res.sendFile(__dirname + '/public/index.html');
 
-})
+});
 
 
 
@@ -64,7 +63,10 @@ app.get('/calculations',  (req, res) => {
       res.json({
         message: "Here are the calculations",
         calculations
-      })
+      });
+    })
+    .catch((err) => {
+      res.json({message: "There was an error", err:err});
     })
 
 });
@@ -88,18 +90,18 @@ app.post('/calculation', (req, res) => {
 req.body.number1 = parseInt(req.body.number1);
 req.body.number2 = parseInt(req.body.number2);
 
-  req.body.result = calculate(req.body.number1, req.body.number2, req.body.operator)
+  req.body.result = calculate(req.body.number1, req.body.number2, req.body.operator);
   
   console.log(req.body, 'calculation from the form');
 
   Calculator
     .create(req.body)
     .then((writtenCalculation) => {
-      res.json({message: "calculation sent"})
+      res.json({message: "calculation sent"});
     })
     .catch((err) => {
-      res.json({message: "internal server error"})
-    })
+      res.json({message: "internal server error"});
+    });
 
 });
 
@@ -117,7 +119,7 @@ req.body.number2 = parseInt(req.body.number2);
 
 // Connect to mongodb (localhost) and connect to server
 function mongoConnection() {
-  const connectionString = "mongodb://localhost:4000"
+  const connectionString = "mongodb://localhost:4000";
   return mongoose.connect(connectionString);
 }
 
@@ -128,6 +130,6 @@ mongoConnection()
     app.listen(PORT, () => console.log(`Our app started on PORT ${PORT}.`));
   })
   .catch(function(err){
-    console.log('something went awry', err)
+    console.log('something went awry', err);
   });
 

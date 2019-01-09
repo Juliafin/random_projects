@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <p data-color="red">Hi</p>
+  <p data-color="green">How</p>
+  <p data-color="yellow">Are</p>
+  <p data-color="blue">You</p>
+  <p data-color="orange">Today?</p>
+
+
+
+
+  <script src='https://code.jquery.com/jquery-3.3.1.min.js' integrity='sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=' crossorigin='anonymous'></script>
+
+  <script>
+    
+    var lastColor = ""
+
+  $('p[data-color]').click(function() {
+    var color = $(this).data("color") // .attr("data-color")
+    lastColor = color;
+    $(this).css("color", color);
+    $(this).prev().css("color", color);
+  });
+  
+  
+  </script>
+
+</body>
+</html>

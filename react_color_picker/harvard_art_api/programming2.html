@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Declarative vs imperative</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+  <script src="main.js"></script>
+  <style>
+  .red {
+
+    background: red;
+
+  }
+
+  .green {
+    background: green;
+  }
+
+  button {
+    border: none;
+    height: 100px;
+    width: 100px;
+  }
+
+
+  
+  </style>
+</head>
+<body>
+  
+  <button class="green" id="color">Welcome, please click me!</button>
+  
+  <script src='https://code.jquery.com/jquery-3.3.1.min.js' integrity='sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=' crossorigin='anonymous'></script>
+
+  <script>
+  // Imperative
+
+  var state = {
+    buttonState: true,
+    buttonClicks: 0
+  }
+
+
+  $('#color').click(function() {
+      // console.log('hello')
+      state.buttonClicks++;
+      console.log(state.buttonClicks)
+      if (state.buttonClicks % 10 === 0) {
+          var that = this;
+          $(that).css({height: "500px", width: "500px"})
+          
+          setTimeout(function(){
+            $(that).css({height: "100px", width: "100px"})
+          }, 3000)
+
+
+      }
+      if (state.buttonState) {
+        $(this).removeClass("green").addClass("red");
+        state.buttonState = false;
+      } else {
+        $(this).removeClass("red").addClass("green")
+        state.buttonState = true;
+
+      }
+
+  })
+
+  </script>
+
+  
+
+
+
+</body>
+</html>

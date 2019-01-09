@@ -3,7 +3,8 @@ import * as actions from './actions';
 
 const initialState = {
   color: "",
-  colorHistory: []
+  colorHistory: [],
+  name: ""
 };
 
 

@@ -1,0 +1,36 @@
+## As the user, I would like to create tasks
+  * The task types are: 
+    1. **Todos**
+      *Standard fields
+      **Due Date with datetime
+
+    2. **Meetings**
+      *For one on one or multiple-person consultations?
+      *Standard fields
+      *Location Field
+
+    3. **Phone Calls**
+      *Standard fields
+      *Phone number
+      *Conference number
+      *Video conference URL
+      *Date
+
+  * The default task is **Todos**
+  * Changing the task type between **Meetings** and **Phone Calls** should not result in loss of data (Should not affect schema?)
+  * The standard task fields are:
+     1. **Title** 
+     2. **Description**
+     3. **Status** (*Unstarted*, *Archived*, *Completed*, *In Progress*)
+     4. **Date** (specific *datetime*, not just date)
+     5. **Priority** (*Low*, *Medium*, *High* )
+  * Archived tasks are only visible in *View Archived Tasks* view
+  * Tasks may have multiple assignees, with one being designated as primary
+  * Tasks may only be assigned to someone in a given user's department
+  * Tasks may be associated with a contact
+
+## As the user, I would like to edit tasks
+  * The editable fields are **Description**, **Assignee(s)**, and fields specific to each task
+  * In the edit view, tasks (of all types) may be archived
+
+* Additional considerations: Tasks may be split into multiple tables and referenced into a generic tasks table that contains fields common to all of the tasks, however I thought that this would cause a lot of field duplication.

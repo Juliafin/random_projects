@@ -1,0 +1,16 @@
+{
+  "name": "harvard_art_api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "hello": "echo 'Hello my name is Julia, and were making a folder!' && mkdir julia"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "prompt": "^1.0.0"
+  }
+}

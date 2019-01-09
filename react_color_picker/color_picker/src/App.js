@@ -109,6 +109,7 @@ class App extends Component {
     return (
       <div className="App">
         <Header/>
+        <p>Hello!</p>
         {image}
 
         <p className="App-intro" onMouseEnter={this.mouseOver} >
