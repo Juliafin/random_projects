@@ -1,0 +1,89 @@
+Bitwise operators - operations on binary numbers
+
+
+True && false = false
+False && True = false
+false && false = false
+true && true = true
+
+
+
+AND     &  (when both are true, the result is true, otherwise false)
+
+
+1001 & 1010
+
+
+1001
+1010
+____
+1000 (8 in decimal)
+
+
+1000101
+1110110
+________
+1000100  (68 in decimal)
+
+
+
+
+OR |        (when either or both are true, then true, otherwise)
+
+True or false = true
+false or true = true
+false or false = false
+true or true = true
+
+
+11011 | 00111
+
+
+11011
+00111
+_____
+11111 (31)
+
+
+
+
+
+
+10011101 & 10000110  =   10000100
+
+
+
+^ XOR     (True when either is true but not both, otherwise false)
+
+true ^ true  =  false
+true ^ false = true
+false ^ true = true
+false ^ false = false
+
+
+10011  ^  11011 = 01000
+
+
+
+
+Two's complement
+
+~ NOT  (inverts the bits of a number)
+
+- (x + 1)
+
+
+~1001 =  0110
+
+
+<< Left shift
+
+1001 << 1         =           10010
+1001 << 2         =           100100
+
+
+>> Right shift
+
+1100 >> 1        =          110
+
+10001 >> 1      =          1000 
