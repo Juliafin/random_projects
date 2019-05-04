@@ -11,7 +11,8 @@
 <body>
   <h1>Main page</h1>
 
-  <form action="/redirect" id="submit_form">
+  <!-- <form action="/redirect" id="submit_form"> -->
+  <form id="submit_form">
 
     <button type="submit" id="redirect_button">Redirect</button>
 
@@ -43,9 +44,9 @@
    }
 
   $('#submit_form').submit((event) =>{
-    // event.preventDefault()
-    console.log('something')
-    // redirectUser()
+    event.preventDefault();
+    console.log('inside submit form event')
+    redirectUser();
 
   })
 

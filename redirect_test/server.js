@@ -18,7 +18,7 @@ app.get('/redirect', (req, res) => {
   // res.redirect('/second')
 
   res.json({
-    url: '/hello'
+    url: '/second'
   })
   // Send back some piece of info to the client informing them to redirect....
 })
