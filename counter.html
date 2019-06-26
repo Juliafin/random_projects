@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  
+<!-- Code a button that counts down from 30 and when clicked, the text turns green and then back to black -->
+ 
+<button></button>
+
+<script src='https://code.jquery.com/jquery-3.3.1.min.js' integrity='sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=' crossorigin='anonymous'></script>
+
+<script>
+  var buttonCounter = 30;
+  var buttonIsCounting = false;
+
+  function renderButtonCounter(counter) {
+    $('button').text(counter);
+  }
+
+
+  function countDown() {
+    if (buttonIsCounting) {
+      return;
+    }
+    // if the button isn't counting already, start the count and track that it's counting
+    buttonIsCounting = true;
+    var count = setInterval(function() {
+      if (buttonCounter === 0) {
+        // When the counter reaches zero, we don't want to keep going lower, so we stop counting down
+        clearInterval(count);
+        // set our boolean tracking if the button is counting to false
+        buttonIsCounting = false;
+        // reset counter
+        buttonCounter = 30;
+        renderButtonCounter(buttonCounter);
+        return;
+      }
+      // decrement the counter and render the count to the button
+      buttonCounter--;
+      renderButtonCounter(buttonCounter);
+
+
+    }, 1000)
+
+  }
+
+    function buttonClickListener() {
+      $('button').click(function() {
+        countDown();
+        // Check if counter is even
+        var isEven = buttonCounter % 2 === 0;
+        if (isEven) {
+          // set the text to green, and then in two seconds set it back to black
+          $('button').css({"background-color": "green", "color": "white"})
+          setTimeout(function() {
+            $('button').css({"background-color": "initial", "color": "black" });
+          }, 2000)
+        } else {
+          $('button').css({"background-color": "red", "color": "white"})
+          setTimeout(function() {
+            $('button').css({"background-color": "initial", "color": "black" });
+          }, 2000)
+        }
+
+      });
+    }
+
+
+
+    buttonClickListener();
+    renderButtonCounter(buttonCounter);
+
+
+
+
+
+</script>
+
+
+
+
+
+</body>
+</html>

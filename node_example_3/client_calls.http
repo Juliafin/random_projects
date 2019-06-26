@@ -1,0 +1,30 @@
+# REST Client (make http calls from vscode)
+
+# 127.0.0.1
+GET http://localhost:9001/
+
+####
+
+
+POST http://localhost:9001/test
+Content-Type: application/json
+
+{
+  "name": "Melissa",
+  "age": 24
+}
+
+
+####
+POST http://localhost:9001/increment
+Content-Type: application/json
+
+{
+  "number": 30
+}
+
+
+####
+
+
+GET http://localhost:9001/giveHtml

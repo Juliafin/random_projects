@@ -13,6 +13,8 @@ function librarySearchListener() {
   });
 }
 
+// http://someDomain.com/someroute/somesubroute?value1=hello&value2=how%20are%20you
+
 
 function searchLOC(q) {
   var BASE_URL = 'https://chroniclingamerica.loc.gov/search/titles/results/';
@@ -24,11 +26,13 @@ function searchLOC(q) {
 
   $.ajax(options)
     .then(function(response) {
-    console.log('Response from the api', response);
-    renderResults(response.items);
+      console.log('Response from the api', response);
+      throw new Error('There was an error');
+      renderResults(response.items);
   })
     .catch(function(error) {
       console.log('There was an error', error);
+      $('#results').html('<p style="color:red;">There was an error</p>')
     });
 }
 
