@@ -1,8 +1,8 @@
 var chai = require('chai');
 var {expect} = require('chai');
-var sum = require('./../app');
+var sum = require('../app');
 var chaiHttp = require('chai-http');
-var server = require('./../server');
+var server = require('../server');
 
 // setup chai-http
 

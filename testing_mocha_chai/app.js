@@ -1,11 +1,10 @@
 function sum (num1, num2) {
-  if (!isNaN(num1) && !isNaN(num2) ) {
-    
-    return num1 + num2
+  if (typeof(num1) === 'number' && typeof(num2) === 'number') {
+    return num1 + num2;
   } else {
-    throw new Error('One of the numbers is not a number');
+    return 0;
   }
 }
 
-module.exports = sum;
 
+module.exports = sum;
