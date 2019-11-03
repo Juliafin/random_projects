@@ -1,0 +1,43 @@
+ db.restaurants.aggregate([{
+   $project: {
+     "grades.score": 1,
+     "scores": {
+       $sum: {
+         $map: {
+           "input": "$grades",
+           "as": "grade",
+           "in": "$$grade.score"
+         }
+       }
+     }
+   }
+ }, {
+   $limit: 2
+ }]).pretty()
+
+ db.restaurants.aggregate([
+  {
+    $unwind: "$grades"
+  }, 
+  {
+  $project: {
+    "scores": {
+      $sum: "$grades.score"
+    }
+  }
+}, {
+  $limit: 2
+}]).pretty()
+
+db.restaurants.aggregate([
+  {
+    $unwind: "$grades"
+  },
+  {
+  $group: {
+    _id: null,
+    "scores": {
+      $sum: "$grades.score"
+    }
+  }
+}]).pretty()

@@ -1,0 +1,110 @@
+[
+  {
+    "date": "9/8/19",
+    "Time in": "3:00 PM",
+    "Time out": "4:00 PM",
+    "Classcode": "UCFVW20190603FSF",
+    "Student Name": "Justin Quezada",
+    "Back-to-Back": "No",
+    "Show / No-Show": "Show"
+  },
+  {
+    "date": "9/9/19",
+    "Time in": "10:58 PM",
+    "Time out": "12:00 AM",
+    "Classcode": "MINSTP20190402FSF",
+    "Student Name": "Laycon Muriziq",
+    "Back-to-Back": "No",
+    "Show / No-Show": "Show"
+  },
+  {
+    "date": "9/10/19",
+    "Time in": "7:59 PM",
+    "Time out": "10:03 PM",
+    "Classcode": "UT-AUS-FSF-FT-08-2019-U-C",
+    "Student Name": "Ahmed Fauz",
+    "Back-to-Back": "Yes",
+    "Show / No-Show": "Show"
+  },
+  {
+    "date": "9/11/19",
+    "Time in": "6:49 PM",
+    "Time out": "7:50 PM",
+    "Classcode": "CU-NYC-FSF-PT-07-09-2019-U-C-TTH",
+    "Student Name": "Rafael De Leon",
+    "Back-to-Back": "No",
+    "Show / No-Show": "Show"
+  },
+  {
+    "date": "9/11/19",
+    "Time in": "9:01 PM",
+    "Time out": "9:57 PM",
+    "Classcode": "UW-SEA-FSF-FT-08-19-2019-U-C-M-F",
+    "Student Name": "Collin Wheetman",
+    "Back-to-Back": "No",
+    "Show / No-Show": "Show"
+  },
+  {
+    "date": "9/12/19",
+    "Time in": "8:30 PM",
+    "Time out": "9:30 AM",
+    "Classcode": "UNCDDTFSFPT07292019UCMW",
+    "Student Name": "Elizabeth Clohosey",
+    "Back-to-Back": "No",
+    "Show / No-Show": "Show"
+  },
+  {
+    "date": "9/13/19",
+    "Time in": "7:00 PM",
+    "Time out": "8:00 PM",
+    "Classcode": "UCFVW20190603FSF",
+    "Student Name": "Justin Quezada",
+    "Back-to-Back": "No",
+    "Show / No-Show": "Show"
+  },
+  {
+    "date": "9/16/19",
+    "Time in": "9:03 PM",
+    "Time out": "10:00 PM",
+    "Classcode": "MINSTP20190402FSF",
+    "Student Name": "Laycon Muriziq",
+    "Back-to-Back": "No",
+    "Show / No-Show": "Show"
+  },
+  {
+    "date": "9/16/19",
+    "Time in": "11:00 PM",
+    "Time out": "12:00 AM",
+    "Classcode": "UW-SEA-FSF-FT-08-19-2019-U-C-M-F",
+    "Student Name": "Collin Wheetman",
+    "Back-to-Back": "No",
+    "Show / No-Show": "Show"
+  },
+  {
+    "date": "9/17/19",
+    "Time in": "8:01 PM",
+    "Time out": "10:00 PM",
+    "Classcode": "UT-AUS-FSF-FT-08-2019-U-C",
+    "Student Name": "Ahmed Fauz",
+    "Back-to-Back": "Yes",
+    "Show / No-Show": "Show"
+  },
+  {
+    "date": "9/18/19",
+    "Time in": "8:02 PM",
+    "Time out": "9:00 PM",
+    "Classcode": "HARCAM20190611FSF",
+    "Student Name": "Rachel Puder",
+    "Back-to-Back": "No",
+    "Show / No-Show": "Show"
+  },
+  {
+    "date": "9/18/19",
+    "Time in": "9:05 PM",
+    "Time out": "9:58 AM",
+    "Classcode": "UW-SEA-FSF-FT-08-19-2019-U-C-M-F",
+    "Student Name": "Collin Wheetman",
+    "Back-to-Back": "No",
+    "Show / No-Show": "Show"
+  }
+]

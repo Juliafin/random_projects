@@ -1,0 +1,8 @@
+POST http://localhost:9001/addNumbers
+Content-Type: application/json
+
+{
+  "numbers": [1, 3, 4, 312, 6],
+  "username": "Julia",
+  "password": "password"
+}

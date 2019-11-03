@@ -1,0 +1,24 @@
+http protocol
+
+
+Headers
+- Metadata:
+   content-type (the kind of content being sent)
+   status code (the status of request signified by a 3 digit number)
+   ...
+
+
+
+Body
+
+- Content
+  Content of the request
+
+
+
+HTTP Verbs
+
+GET - Exposes a resource
+POST - Creates a resource
+PUT - Changes a resource
+DELETE - Deletes a resource

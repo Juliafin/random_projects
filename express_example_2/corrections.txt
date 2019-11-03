@@ -1,0 +1,105 @@
+
+1. Date : 9/8/19
+2. Time in: 3:00 PM
+3. Time out: 4:00 PM
+4. Classcode: UCFVW20190603FSF
+5. Student Name : Justin Quezada
+6. Back-to-Back: No
+7. Show / No-Show: Show
+
+1. Date : 9/9/19
+2. Time in: 9:03 PM
+3. Time out: 10:04 PM
+4. Classcode: UW-SEA-FSF-FT-08-19-2019-U-C-M-F
+5. Student Name : Collin Wheetman
+6. Back-to-Back: No
+
+1. Date : 9/9/19
+2. Time in: 10:58 PM
+3. Time out: 12:00 AM
+4. Classcode: MINSTP20190402FSF
+5. Student Name : Laycon Muriziq
+6. Back-to-Back: No
+7. Show / No-Show: Show
+
+1. Date : 9/10/19
+2. Time in: 7:59 PM
+3. Time out: 10:03 PM
+4. Classcode: UT-AUS-FSF-FT-08-2019-U-C
+5. Student Name : Ahmed Fauz
+6. Back-to-Back: Yes
+7. Show / No-Show: Show
+
+	
+1. Date : 9/11/19
+2. Time in: 6:49 PM
+3. Time out: 7:50 PM
+4. Classcode: CU-NYC-FSF-PT-07-09-2019-U-C-TTH
+5. Student Name : Rafael De Leon
+6. Back-to-Back: No
+7. Show / No-Show: Show
+
+1. Date : 9/11/19
+2. Time in: 9:01 PM
+3. Time out: 9:57 PM
+4. Classcode: 	UW-SEA-FSF-FT-08-19-2019-U-C-M-F
+5. Student Name : Collin Wheetman
+6. Back-to-Back: No
+7. Show / No-Show: Show
+
+
+1. Date : 9/12/19
+2. Time in: 8:30 PM
+3. Time out: 9:30 AM
+4. Classcode: UNCDDTFSFPT07292019UCMW
+5. Student Name : Elizabeth Clohosey
+6. Back-to-Back: No
+7. Show / No-Show: Show
+
+1. Date : 9/13/19
+2. Time in: 7:00 PM
+3. Time out: 8:00 PM
+4. Classcode: UCFVW20190603FSF
+5. Student Name : Justin Quezada
+6. Back-to-Back: No
+7. Show / No-Show: Show
+
+1. Date : 9/16/19
+2. Time in: 9:03 PM
+3. Time out: 10:00 PM
+4. Classcode: MINSTP20190402FSF
+5. Student Name : Laycon Muriziq
+6. Back-to-Back: No
+7. Show / No-Show: Show
+
+1. Date : 9/16/19
+2. Time in: 11:00 PM
+3. Time out: 12:00 AM
+4. Classcode: UW-SEA-FSF-FT-08-19-2019-U-C-M-F
+5. Student Name : Collin Wheetman
+6. Back-to-Back: No
+7. Show / No-Show: Show
+
+1. Date : 9/17/19
+2. Time in: 8:01 PM
+3. Time out: 10:00 PM
+4. Classcode: UT-AUS-FSF-FT-08-2019-U-C
+5. Student Name : Ahmed Fauz
+6. Back-to-Back: Yes
+7. Show / No-Show: Show
+
+1. Date : 9/18/19
+2. Time in: 8:02 PM
+3. Time out: 9:00 PM
+4. Classcode: HARCAM20190611FSF
+5. Student Name : Rachel Puder
+6. Back-to-Back: No
+7. Show / No-Show: Show
+
+1. Date : 9/18/19
+2. Time in: 9:05 PM
+3. Time out: 9:58 AM
+4. Classcode: UW-SEA-FSF-FT-08-19-2019-U-C-M-F
+5. Student Name : Collin Wheetman
+6. Back-to-Back: No
+7. Show / No-Show: Show

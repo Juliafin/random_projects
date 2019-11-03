@@ -3,7 +3,7 @@ const sum = require('../app');
 
 
 // Describe is containing a group of tests - Test suite
-describe('sum', function() {
+describe('sum', function(){
 
   it('Should return the correct sum when passed two numbers', function() {
 
@@ -16,6 +16,8 @@ describe('sum', function() {
     const result = sum(2, 8);
 
     // 3. Assert whether the test result is successful or not
+    var name = 'Anthony';
+    var tLiteral = `Hi ${name}`;
 
     expect(result).to.be.a('number');
     expect(result).to.be.greaterThan(9);
@@ -24,15 +26,15 @@ describe('sum', function() {
   });
 
   it('Should return 0 when passed parameters that are not numbers', function() {
-     // 1. Do setup if necessary (declare necessary variables for the test)
+    // 1. Do setup if necessary (declare necessary variables for the test)
 
     const expectedResult = 0;
 
-     // 2. Execute the test code
+    // 2. Execute the test code
  
-     const result = sum("2", "8");
+    const result = sum("2", "8");
  
-     // 3. Assert whether the test result is successful or not
+    // 3. Assert whether the test result is successful or not
  
     expect(result).to.be.a('number');
     expect(result).to.be.lessThan(1);

@@ -1,0 +1,15 @@
+{
+  "name": "example_for_elizabeth",
+  "version": "1.0.2",
+  "description": "This is a node example!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Julia",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "lodash": "^4.17.15"
+  }
+}

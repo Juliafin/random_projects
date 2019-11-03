@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <label for="text">Input text below</label>
+  <input type="text" id="text">
+
+
+  <div id="processedText"></div>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
+  <script>
+  
+    $('#text').change(function(event) {
+      const text = event.target.value;
+      console.log(text, 'text');
+
+      $.ajax({
+        url: "/processText",
+        method: "POST",
+        data: {
+          text
+        }
+      }).then(function(response) {
+        console.log(response)
+        const textHtml = Object
+          .keys(response.processedText)
+          .map(function(key) {
+            return `<p>${key}: ${response.processedText[key]}</p>`
+          });
+
+        
+        
+        $('#processedText')
+          .html(textHtml);
+
+      })
+
+
+
+      
+    })
+
+
+
+
+
+  </script>
+
+</body>
+
+</html>

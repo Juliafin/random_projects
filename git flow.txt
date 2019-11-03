@@ -1,0 +1,17 @@
+master - production grade code! (release quality)
+
+|
+
+development (beta grade code) - should be stable, but can have small issues
+
+|
+
+feature/bugfix banches - (alpha grade code) - unstable (incomplete work)
+
+
+1. Pull from development (get the latest code)
+2. Checkout from development - making feature/bugfix branch
+3a. Merge and pull development into your branch (resolve any conflicts) 
+3b. Once feature branch is stable and tested, pull request to development
+4. Two people test and review locally (on your branch) if it's good, approve and merge
+5. Test again in development - if it's good, merge to master
