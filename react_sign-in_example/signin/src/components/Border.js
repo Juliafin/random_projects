@@ -2,7 +2,7 @@ import React from 'react';
 import './Border.css';
 import { Modal, Button } from 'react-materialize';
 
-export const Border = (props) => {
+const Border = (props) => {
 
   const button = (<Button>Open</Button>)
 
@@ -15,3 +15,5 @@ export const Border = (props) => {
     </div>
   )
 }
+
+export default Border

@@ -1,75 +1,69 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-import PageTwo from './components/page2';
-import { Border } from './components/Border';
+import { SigninInput } from './components/SigninInput';
+import { SigninStatus } from './components/SigninStatus';
 
-class App extends React.Component {
+
+export default class App extends React.Component {
 
   constructor(props) {
     super(props);
     this.state = {
-      welcomePage: true,
-      currentPage: 1
+      username: '',
+      password: '',
+      formSubmitted: false,
+      formValid: false
     }
   }
 
-  
-
-
-  togglePage = () => {
-    let nextPage;
-    if (this.state.currentPage === 3) {
-      nextPage = 1
-    } else {
-      nextPage = this.state.currentPage + 1;
+  componentDidUpdate(prevProps, prevState) {
+    // console.log(prevProps);
+    // console.log(prevState);
+    if (prevState.formSubmitted !== this.state.formSubmitted) {
+      console.log('The form has been submitted!');
+      if (this.state.username && this.state.password) {
+        this.setState({
+          formValid: true
+        })
+      }
     }
 
+
+  }
+
+  updateInput = (event) => {
+    console.log(event.target);
     this.setState({
-      welcomePage: !this.state.welcomePage,
-      currentPage: nextPage
+      [event.target.id]: event.target.value
     })
   }
 
-
-
-  render() {
-
-    let currentPage;
-
-    switch(this.state.currentPage) {
-      case 1:
-        currentPage = (
-          <Border>
-            Page 1
-          </Border>
-        )
-      break;
-      case 2:
-        currentPage = (
-          <Border>
-            <PageTwo/>
-          </Border>
-        )
-      break;
-      case 3:
-        currentPage = (
-          <Border>
-            Page 3
-          </Border>
-        )
-    }
-
-    return (
-      <div>
-        {currentPage}
-      </div>
-    )
+  submitInput = (event) => {
+    event.preventDefault();
+    this.setState({
+      formSubmitted: true
+    })
 
   }
 
+  render() {
+    let status;
+    
+    if (this.state.formValid && this.state.formSubmitted) {
+      status = 'The input is valid!';
+
+    } else if (!this.state.formValid && !this.state.formSubmitted) {
+      status = 'The form is not submitted'
+    } else if (!this.state.formValid && this.state.formSubmitted) {
+      status = 'There is an error with your submission!' 
+    }
+    return (
+      <div>
+        <header>Welcome to the APP</header>
+        <SigninInput formSubmit={this.submitInput} changeHandler={this.updateInput} />
+        <SigninStatus status={status} />
+      </div>
+    )
+  }
+
 }
-
-
-export default App;
-
