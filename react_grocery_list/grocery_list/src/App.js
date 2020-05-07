@@ -1,45 +1,61 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import GroceryInput from './components/GroceryInput';
+import GroceryList from './components/GroceryList';
+
 
 class App extends Component {
 
   constructor(props) {
     super(props);
+    // console.log(this.props) // {}
     this.state = {
-      favoriteNumber: 40,
-      clicked: true
-    }
-
+      appName: 'Grocery List',
+      itemType: 'vegetable',
+      userInput: '',
+      groceryList: []
+    };
   }
 
-
-  handleClick = () => {
-      if (this.state.clicked) {
-        this.setState({favoriteNumber: 4})
-      } else {
-        this.setState({favoriteNumber: 40})
-      }
+  monitorGroceryInput = (event) => {
+    const input = event.target.value;
+    
     this.setState({
-      clicked: !this.state.clicked
-    })
+      userInput: input,
+    });
   }
 
+  addGroceryItemToList = (event) => {
+    event.preventDefault();
+    this.setState({
+      userInput: '',
+      groceryList: [...this.state.groceryList, this.state.userInput]
+    });
+  }
 
+  deleteGroceryItem = (event) => {
+    console.log(event.target);
+    const index = parseInt(event.target.getAttribute('index'));
+    console.log('index of item to delete: ', index);
+    const newGroceryList = [...this.state.groceryList];
+    newGroceryList.splice(index, 1);
+
+    this.setState({
+      groceryList: newGroceryList
+    })
+
+  }
 
   render() {
     return (
       <div className="App">
         <header className="App-header">
-          {
-            this.state.clicked ?
-            <img src={logo} className="App-logo" alt="logo" /> :
-            null
-
-          }
+          <h1>Welcome to the {this.state.appName}!</h1>
           <p>
             Edit <code>src/App.js</code> and save to reload.
           </p>
+          
           <a
             className="App-link"
             href="https://reactjs.org"
@@ -50,10 +66,14 @@ class App extends Component {
             We can type more things!
 
           </a>
-          <p>We can do math! 2 + 2 = {this.state.favoriteNumber}</p>
 
+          <GroceryInput
+            foodType={this.state.itemType}
+            handleInputChange={this.monitorGroceryInput}
+            handleGrocerySubmit={this.addGroceryItemToList}
+            userInput={this.state.userInput}/>
 
-          <button onClick={this.handleClick}>Click me!</button>
+          <GroceryList groceries={this.state.groceryList} deleteGroceryClick={this.deleteGroceryItem}/>
 
         </header>
       </div>

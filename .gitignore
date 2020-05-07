@@ -2,3 +2,6 @@
 node_modules/
 docker_node_xample.rar handlebars_example.rar handlebars_sample.rar hotRestaurant.rar mongo_example.rar mongoose_calculator_example.rar mongoose_lemonade_stand.rar mongoose_scraping_example.rar new_node_server.rar node_api_react.rar node_redirect.rar random_node_project.rar redirect_test.rar sample_react_ajax.rar sequelize_calculator.rar sequelize_handlebars_example.rar sequelize_twitter.rar testing.rar testing_mocha_chai_2.rar unit_testing_example.rar
 **/*.rar
+git_flow/
+git_flow
+.gitignore

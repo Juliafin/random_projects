@@ -1,0 +1,7 @@
+.box {
+  position: absolute;
+  display: table-footer-group;
+  height: 100px;
+  width: 100px;
+  background-color: rgba(23, 241, 232, 21);
+}
