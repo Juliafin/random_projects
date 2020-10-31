@@ -1,0 +1,26 @@
+h1 {
+  color: red;
+}
+
+#calculatorContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#result {
+  width: 50vw;
+  height: 20vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: red solid 1px;
+}
+
+#calculationHistory {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border: 1px solid grey;
+}

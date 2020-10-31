@@ -1,14 +1,14 @@
-const sequelize = require('sequelize');
+const Sequelize = require('sequelize');
 
 var connectionOptions = {
   host: "localhost",
   port: 3306,
   username: 'root',
-  password: "",
+  password: "rue9dQW}R834kcv8}",
   database: "calcDB",
   dialect: 'mysql'
 };
 
-const sequelizeConnection = new sequelize(connectionOptions);
+const sequelizeConnection = new Sequelize(connectionOptions);
 
 module.exports = sequelizeConnection;
