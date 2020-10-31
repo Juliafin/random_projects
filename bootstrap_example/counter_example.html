@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #box {
+      position: absolute;
+      height: 400px;
+      width: 400px;
+      top: 50%;
+      bottom: 50%;
+      left: 50%;
+      right: 50%;
+      background-color: blueviolet;
+    }
+  </style>
+</head>
+<body>
+
+  
+
+
+  <div id="box"></div>
+  <div id="counter">0</div>
+
+  <button>Increment</button>
+
+  <script>
+    var counter = 0;
+
+    var button = document.querySelector('button');
+    var counterContainer = document.querySelector('#counter')
+    var box = document.querySelector('#box');
+
+    /* 
+      If the counter is divisible by 4 = background green
+      ....              divisible by 3 = background red
+      ....              divisible by 2 = background yellow
+      ....              divisible by 5 = background blue
+                    otherwise blueviolet
+    
+    */
+
+    button.addEventListener('click', function() {
+      counter++;
+      counterContainer.innerText = counter;
+
+      if (counter % 5 === 0) {
+        box.style.backgroundColor = 'blue'
+      } else if (counter % 4 === 0) {
+        box.style.backgroundColor = 'green'
+      } else if (counter % 3 === 0) {
+        box.style.backgroundColor = 'red'
+      } else if (counter % 2 === 0) {
+        box.style.backgroundColor = 'yellow'
+      } else {
+        box.style.backgroundColor = 'blueviolet'
+      }
+
+    });
+
+  </script>
+
+
+</body>
+</html>

@@ -1,0 +1,19 @@
+#box {
+  height: 600px;
+  width: 800px;
+  background-color: blue;
+  border: 1px solid gray;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+
+@media only screen and (max-width: 600px) {
+  #box {
+    background-color: green;
+  }
+}
+

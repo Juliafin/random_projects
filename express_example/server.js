@@ -2,7 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const axios = require('axios')
 const app = express();
-const PORT = 7878;
+const PORT = 13000;
 const bcrypt = require('bcrypt');
 // client id
 // KZrpdnpz600sbFg8CkLWWFMUGgTbcamvVQYoYzHiwBxu8fIbZO1Vly4YD4kcZh2m
@@ -52,6 +52,9 @@ function incrementOne (req,res, next) {
   next();
 }
 
+app.get('/', (req, res) => {
+  res.json({ message: "hi!!!" } )
+})
 
 app.get('/getallnumbers', function (req, res) {
   res.json({message: 'Here are all of the numbers', numbers: numbers});

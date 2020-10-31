@@ -1,0 +1,13 @@
+<h1>Hi {{name}}!</h1>
+
+<form id="nameForm">
+  <label for="nameInput">enter a name</label>
+  <input id="nameInput" type="text">
+  <button type="submit">Submit</button>
+</form>
+
+<ul>
+{{#each names}}
+  <li>{{this}}</li>
+{{/each}}
+</ul>

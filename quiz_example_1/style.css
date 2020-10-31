@@ -1,0 +1,37 @@
+#quiz {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  border: 1px solid grey;
+  height: 400px ;
+  flex-direction: column;
+}
+
+#quiz-controls {
+  margin: 0 auto;
+  text-align: center;
+}
+
+#next {
+  height: 40px;
+  width: 150px;
+  outline: none;
+  font-size: 1.5rem;
+  background-color: #9fc7;
+  border: none;
+  border-radius: 5px;
+  margin: 10px;
+  cursor: pointer;
+}
+
+#timer {
+  font-size: 1.5rem;
+  font-weight: 800;
+}
+
+button.disabled {
+  background-color: grey !important;
+  color: white;
+  cursor: not-allowed !important;
+}

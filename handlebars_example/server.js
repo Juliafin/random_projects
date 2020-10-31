@@ -2,12 +2,12 @@ const express = require('express');
 const app = express();
 const PORT = '9001';
 const expressHandlebars = require('express-handlebars');
-const bodyParser = require('body-parser');
+
 let notes = require('./data/note');
 
 app.use(express.static('public'))
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: true}));
+app.use(express.json());
+app.use(express.urlencoded({extended: true}));
 app.engine('handlebars', expressHandlebars({defaultLayout: "default"}));
 app.set('view engine', 'handlebars');
 
@@ -22,7 +22,7 @@ app.get('/', function (req, res) {
 });
 
 app.post('/notes',function(req, res) {
-  console.log(req.body);
+
 
   notes.push({
     author: req.body.author,
@@ -33,7 +33,39 @@ app.post('/notes',function(req, res) {
 });
 
 
+app.put('/notes', function(req, res) {
 
-app.listen(PORT, function() {
-  console.log(`The server has started on port ${PORT}.`);
-});
+  var noteIndex = req.body.index;
+
+  notes[noteIndex] = {
+    author: req.body.author,
+    note: req.body.note
+  }
+
+  res.json({
+    message: "Updated",
+    note: req.body
+  })
+
+})
+
+
+
+function serverStart() {
+
+  server = app.listen(PORT, function() {
+      console.log(`The server has started on port ${PORT}.`);
+    });
+  return server;
+}
+
+
+
+if (require.main === module) {
+  var s = serverStart();
+  s.close();
+  console.log('s', s);
+}
+
+
+

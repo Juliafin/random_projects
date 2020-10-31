@@ -4,7 +4,8 @@
   "description": "An example of a node server",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
   },
   "keywords": [
     "example",
@@ -17,6 +18,7 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.16.2",
-    "lodash": "^4.17.4"
+    "lodash": "^4.17.4",
+    "nodemon": "^2.0.4"
   }
 }
