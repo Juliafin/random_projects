@@ -1,3 +1,5 @@
+## Install REST client vscode extension for this to work!
+
 POST http://localhost:9005/api/calculate
 Content-Type: application/json
 
