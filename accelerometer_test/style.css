@@ -1,0 +1,7 @@
+@font-face {
+  font-family: 'VeganStyle';
+  src: url('VeganStyle.ttf');
+}
+h1 {
+  font-family: 'VeganStyle';
+}

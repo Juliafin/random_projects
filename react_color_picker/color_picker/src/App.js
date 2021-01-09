@@ -95,26 +95,22 @@ class App extends Component {
 
     const colorHistoryDisplay = this.props.colorHistory.map((color, index,colorArray) => {
       return (
-      <ColorDisplay key={index} tiger="hello" display="inline-block" height="100px" width="200px" color={color}> 
-        <p>Color number {index + 1 }</p>
-        {index ? <ColorDisplay height="25px" width="25px" color={colorArray[index-1]} display ="inline-block"/>   : null }
+      <ColorDisplay 
+      key={index}
+      tiger="hello"
+      display="inline-block"
+      height="100px"
+      width="200px"
+      color={color}> 
+        {/* <p>Color number {index + 1 }</p>
+        {index ? <ColorDisplay height="25px" width="25px" color={colorArray[index-1]} display ="inline-block"/>   : null } */}
       </ColorDisplay>
       )
     })
-    var image = null
-    if (this.state.showImage) {
-      image = <img src={this.state.imageUrl}></img> 
-    }
 
     return (
       <div className="App">
         <Header/>
-        <p>Hello!</p>
-        {image}
-
-        <p className="App-intro" onMouseEnter={this.mouseOver} >
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
         <ColorInput clearHistory={this.clearHistory} num={5} submitColor={this.submitColor} setColor={this.setColor}/>
         <ColorDisplay color={this.props.color}/>
         <div>

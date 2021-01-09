@@ -1,0 +1,16 @@
+{
+  "name": "hi-this-is-a-happy-package-test",
+  "version": "1.0.0",
+  "description": "This is a test of the npm js package system",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 0"
+  },
+  "keywords": [
+    "happy",
+    "package",
+    "test"
+  ],
+  "author": "Julia",
+  "license": "ISC"
+}

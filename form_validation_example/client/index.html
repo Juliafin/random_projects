@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <style>
+    .container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 20px;
+      border: 1px solid darkblue;
+      padding: 20px;
+    }
+
+    .status {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .success {
+      color: green;
+    }
+
+    .failure {
+      color: red;
+    }
+
+  </style>
+
+  <div class="container">
+    <!-- Native form validation -->
+    <form action="/postSomewhere" method="POST">
+      <label for="first">First Name</label>
+      <input minlength="3" maxlength="20" required type="text" id="first" name="first">
+      <label for="last">Last Name</label>
+      <input pattern="^[a-zA-Z]+$" required type="text" id="last" name="last">
+      <button type="submit">Submit</button>
+    </form>
+
+  </div>
+  
+  <div class="container">
+    <!-- Javascript based validation -->
+    <label for="favoriteColor">Enter a favorite color</label>
+    <input id="favoriteColor" type="text">
+    <div class="status"></div>
+  </div>
+
+<script src="/app.js"></script>
+
+</body>
+</html>

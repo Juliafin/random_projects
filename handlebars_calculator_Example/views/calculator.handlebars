@@ -1,0 +1,34 @@
+<h1>Welcome to the calculator, {{name}}</h1>
+  <label for="">Number 1</label>
+  <input id="num1" class="calculate" type="number">
+
+  <label for="">Operator</label>
+  <select id="operator" class="calculate" name="" id="">
+    <option value="+">+</option>
+    <option value="-">-</option>
+    <option value="*">&#215;</option>
+    <option value="/">&#247;</option>
+  </select>
+
+  <label for="">Number 2</label>
+  <input id="num2" class="calculate" type="number">
+
+  <button>Submit</button>
+
+
+  <div id="calculationHistory">
+    {{#each calculations}}
+      <div>
+        <span>{{num1}}</span>
+        <span>{{operator}}</span>
+        <span>{{num2}}</span>
+        <span>=</span>
+        <span>{{result}}</span>
+        {{#if  (isMoreThan100 num1) }}
+          <span>WOW that's big!</span>
+        {{/if}}
+      </div>
+    {{/each}}
+
+
+  </div>

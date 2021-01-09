@@ -1,0 +1,17 @@
+{
+  "name": "package_example_2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "hi-this-is-a-happy-package-test": "file:../package_example/hi-this-is-a-happy-package-test-1.0.0.tgz",
+    "lodash": "^4.17.20",
+    "mongoose": "^5.10.15"
+  }
+}

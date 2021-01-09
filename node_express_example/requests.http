@@ -1,0 +1,17 @@
+GET http://localhost:11001/api/test
+
+###
+
+GET http://localhost:11001/api/getNotes
+
+###
+
+
+POST http://localhost:11001/api/createNote
+Content-Type: application/json
+
+{
+  "author": "Britt",
+  "note": "I like the weekend!"
+}
+

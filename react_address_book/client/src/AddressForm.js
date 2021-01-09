@@ -43,21 +43,22 @@ class Addressform extends Component {
   }
 
 
+
   render () {
     return (
       <form onSubmit={this.formSubmit}>
         <Row>
-          <Input onChange={this.fieldChange} placeholder="First name" name="firstName"></Input>
-          <Input onChange={this.fieldChange} placeholder="last name" name="lastName"></Input>
+          <Input onFocus={this.props.focusHandler}  onChange={this.fieldChange} placeholder="First name" name="firstName"></Input>
+          <Input onFocus={this.props.focusHandler} onChange={this.fieldChange} placeholder="last name" name="lastName"></Input>
         </Row>
         <Row>
-          <Input onChange={this.fieldChange} placeholder="Address" name="address" label="Address" ></Input>
-          <Input onChange={this.fieldChange} placeholder="Zipcode" name="zipCode" label="Zipcode" ></Input>
-          <Input onChange={this.fieldChange} placeholder="City" name="city" label="City" ></Input>
-          <Input onChange={this.fieldChange} placeholder="State" name="state" label="State" ></Input>
+          <Input onFocus={this.props.focusHandler} onChange={this.fieldChange} placeholder="Address" name="address" label="Address" ></Input>
+          <Input onFocus={this.props.focusHandler} onChange={this.fieldChange} placeholder="Zipcode" name="zipCode" label="Zipcode" ></Input>
+          <Input onFocus={this.props.focusHandler} onChange={this.fieldChange} placeholder="City" name="city" label="City" ></Input>
+          <Input onFocus={this.props.focusHandler} onChange={this.fieldChange} placeholder="State" name="state" label="State" ></Input>
         </Row>
         <Row >
-          <Input onChange={this.fieldChange} placeholder="Telephone Number" name="telephoneNumber" label="Telephone Number"></Input>
+          <Input onFocus={this.props.focusHandler} onChange={this.fieldChange} placeholder="Telephone Number" name="telephoneNumber" label="Telephone Number"></Input>
         </Row>
         <Button type="submit" waves="light">Submit entry</Button>
       </form>

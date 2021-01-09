@@ -1,0 +1,30 @@
+GET http://localhost:9002/getDirectory
+
+
+###
+POST http://localhost:9002/createEntry
+Content-Type: application/json
+
+{
+  "name": "Melissa Samuels",
+  "phoneNumber": "234-123-5331"
+}
+
+###
+PUT http://localhost:9002/modifyEntry
+Content-Type: application/json
+
+{
+  "existingName": "Melissa Samuels",
+  "newName": "Jonathan Roberts",
+  "newPhoneNumber": "421-534-6312"
+}
+
+
+###
+DELETE  http://localhost:9002/deleteEntry
+Content-Type: application/json
+
+{
+  "name": "Jonathan Roberts"
+}

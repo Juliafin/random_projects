@@ -12,7 +12,8 @@ class App extends Component {
     this.state = {
       intro: true,
       formSubmitted: false,
-      entries: []
+      entries: [],
+      elementFocused: null
     };
     this.setIntroFalse = this.setIntroFalse.bind(this);
     this.setFormSubmitted = this.setFormSubmitted.bind(this);
@@ -39,14 +40,20 @@ class App extends Component {
     console.log(this.state, 'THIS.STATE')
   }
 
+  onFocus = (event) => {
+    console.log('target: ', event.target.name);
+    this.setState({ elementFocused: event.target.name})
+  }
+
   render() {
 
-    const button = this.state.intro ? <Button onClick={this.setIntroFalse} waves='light'>Enter</Button> : <AddressForm setFormSubmitted={this.setFormSubmitted}/>; 
+    const button = this.state.intro ? <Button onClick={this.setIntroFalse} waves='light'>Enter</Button> : <AddressForm setFormSubmitted={this.setFormSubmitted}
+    focusHandler={this.onFocus}/>; 
     const addressEntries = this.state.entries.map((entry, index) => {
       return (<AddressDisplay 
         key={index} 
         address={entry.address} 
-        city={entry.city} s
+        city={entry.city}
         firstName={entry.firstName} 
         lastName={entry.lastName}
         zipCode={entry.zipCode} 
@@ -61,6 +68,12 @@ class App extends Component {
         <p className="App-intro">
           {this.state.intro ? "Click the button below to proceed:" : null} 
         </p>
+        {this.state.intro ? null : 
+          <div>
+            <h1>Form Element focused: </h1>
+            <div id="focused">{this.state.elementFocused ? this.state.elementFocused : null}</div>
+          </div>
+        }
         {this.state.formSubmitted ? addressEntries : button}
       </div>
     );
