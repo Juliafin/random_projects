@@ -17,7 +17,7 @@
   "author": "Julia",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.16.2",
+    "express": "^4.17.3",
     "lodash": "^4.17.4",
     "nodemon": "^2.0.4"
   }
